@@ -1,0 +1,46 @@
+---
+import Button from "./Button.astro";
+import type { IconType } from "react-icons/lib";
+
+interface Props {
+    name: string;
+    nacionality?: string;
+    description?: string;
+    image: string;
+    buttons: Button[];
+}
+
+interface Button {
+    label: string;
+    link: string;
+    Icon: IconType;
+}
+
+const { name, nacionality, image, description, buttons } = Astro.props;
+---
+
+<section class="bg-tertiary px-5 py-8 flex flex-col items-center text-primary rounded-xl w-96 shadow-lg">
+    <img
+        src={image}
+        alt="Picture of the author"
+        class="rounded-full shadow-lg object-cover"
+        width={94}
+        height={94}
+    />
+
+    <article class="flex flex-col items-center mt-5">
+        <h1 class="text-3xl">{name}</h1>
+        <h2 class="text-xl mb-2">{nacionality}</h2>
+        <p class="text-lg">{description}</p>
+
+        <section class="flex flex-col w-80 gap-4 mt-5">
+            {buttons.map(({label, link, Icon}) => (
+                <Button
+                    href={link}
+                >
+                    <Icon /> {label}
+                </Button>
+            ))}
+        </section>
+    </article>
+</section>

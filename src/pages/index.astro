@@ -1,0 +1,43 @@
+---
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa6";
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+const SocialLink = [
+	{
+		label: 'GitHub',
+		link: '',
+		Icon: FaGithub
+	},
+	{
+		label: 'LinkedIn',
+		link: '',
+		Icon: FaLinkedin
+	},
+	{
+		label: 'Twitter',
+		link: '',
+		Icon: FaTwitter
+	},
+	{
+		label: 'Instagram',
+		link: '',
+		Icon: FaInstagram
+	}
+]
+---
+
+<Layout title="Welcome to Astro.">
+	<main class="h-screen w-screen overflow-hidden flex justify-center items-center">
+		<Card
+			name='Yeiser Jimenez'
+			description="Software Engineer"
+			nacionality="🇩🇴 Republica Dominicana"
+			image='/avatar.jpeg'
+			buttons={SocialLink}
+		/>
+	</main>
+</Layout>
+
+<style>
+</style>
